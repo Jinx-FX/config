@@ -136,3 +136,6 @@ unset key
 
 # starship config see : https://github.com/starship/starship
 eval "$(starship init zsh)"
+
+# joshuto config leaving/quit joshuto on current directory
+alias joshuto='joshuto --output-file /tmp/joshutodir; LASTDIR=`cat /tmp/joshutodir`; cd "$LASTDIR"'
