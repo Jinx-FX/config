@@ -164,3 +164,10 @@ export PATH="$PATH:$HOME/development/flutter/bin"
 
 # joshuto config leaving/quit joshuto on current directory
 alias joshuto='joshuto --output-file /tmp/joshutodir; LASTDIR=`cat /tmp/joshutodir`; cd "$LASTDIR"'
+
+# bun completions
+[ -s "/Users/didi/.bun/_bun" ] && source "/Users/didi/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
