@@ -22,7 +22,7 @@ archive = [
 	{ exec = 'unar "$1"', display_name = "Extract here" },
 ]
 text = [
-	{ exec = '$EDITOR "$@"', block = true },
+	{ exec = 'nvim "$@"', block = true },
 ]
 image = [
 	{ exec = 'open "$@"', display_name = "Open" },

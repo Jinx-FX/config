@@ -165,6 +165,20 @@ export PATH="$PATH:$HOME/development/flutter/bin"
 # joshuto config leaving/quit joshuto on current directory
 alias joshuto='joshuto --output-file /tmp/joshutodir; LASTDIR=`cat /tmp/joshutodir`; cd "$LASTDIR"'
 
+# yazi config
+#
+# Convert this function to alias
+#
+# function ya() {
+#     tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+#     yazi --cwd-file="$tmp"
+#     if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+#         cd -- "$cwd"
+#     fi
+#     rm -f -- "$tmp"
+# }
+alias yazi='tmp="$(mktemp -t "yazi-cwd.XXXXX")"; yazi --cwd-file="$tmp"; if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then cd -- "$cwd"; fi; rm -f -- "$tmp"'
+
 # bun completions
 [ -s "/Users/didi/.bun/_bun" ] && source "/Users/didi/.bun/_bun"
 
