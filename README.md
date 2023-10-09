@@ -24,6 +24,11 @@ Also, these are bspwm and i3wm and more.
 - kitty
 - simple terminal
 
+## File manager in Terminal
+
+- joshuto
+- yazi
+
 ## Shell
 
 - zsh with zimfw
