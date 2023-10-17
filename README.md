@@ -8,11 +8,22 @@ you may try something like [dwm](https://dwm.suckless.org/) and [st](https://st.
 
 Also, these are bspwm and i3wm and more.
 
+## Code
+
+- vscode
+- nvim
+
+## Api tools
+
+- cURl
+- httpie
+
 ## Window Manager
 
 - i3wm
 - dwm
 - bspwm with sxhkd
+- AltTab: Mac OS X >> switch window like windows
 
 ## Bar
 
@@ -38,8 +49,9 @@ Also, these are bspwm and i3wm and more.
 
 - hammerspoon: only in Mac OS X
 - raycast: only in Mac OS X
+- clashX: remote
 
 ## Script
 
-See /script
+See `/script`
 
