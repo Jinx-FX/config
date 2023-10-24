@@ -1,11 +1,11 @@
 [tab]
-active    = { fg = "#1E2031", bg = "#80AEFA" }
+active    = { fg = "#1E2031", bg = "#ff70d4" }
 inactive  = { fg = "#C8D3F8", bg = "#484D66" }
 max_width = 1
 
 [status]
-primary	  = { normal = "#80AEFA", select = "#CD9EFC", unset = "#FFA577" }
-secondary = { normal = "#1E2031", select = "#23273B", unset = "#23273B" }
+primary	  = { normal = "#ff70d4", select = "#CD9EFC", unset = "#FFA577" }
+secondary = { normal = "#563ef0", select = "#e5aef2", unset = "#3ea7ed" }
 tertiary  = { normal = "#6D738F", select = "#6D738F", unset = "#6D738F" }
 body      = { normal = "#484D66", select = "#484D66", unset = "#484D66" }
 emphasis  = { normal = "#C8D3F8", select = "#C8D3F8", unset = "#C8D3F8" }
@@ -20,7 +20,7 @@ gauge = { fg = "#FFA577", bg = "#484D66" }
 label = { fg = "#FFFFFF", bold = true }
 
 [selection]
-hovered = { fg = "#1E2031", bg = "#80AEFA" }
+hovered = { fg = "##563ef0", bg = "#ff70d4" }
 
 [marker]
 selecting = { fg = "#97DC8D", bg = "#97DC8D" }
@@ -51,7 +51,7 @@ rules = [
 
 	# Fallback
 	{ name = "*", fg = "#C8D3F8" },
-	{ name = "*/", fg = "#80AEFA" }
+	{ name = "*/", fg = "#ff70d4" }
 ]
 
 [icons]
