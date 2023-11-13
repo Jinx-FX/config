@@ -2389,9 +2389,3 @@ background_blur 64
 #: }}}
 
 #: }}}
-
-
-# BEGIN_KITTY_THEME
-# Dracula
-include current-theme.conf
-# END_KITTY_THEME
