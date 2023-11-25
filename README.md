@@ -12,6 +12,7 @@ Also, these are bspwm and i3wm and more.
 
 - vscode
 - nvim
+- other ide
 
 ## Api tools
 
@@ -23,7 +24,8 @@ Also, these are bspwm and i3wm and more.
 - i3wm
 - dwm
 - bspwm with sxhkd
-- AltTab: Mac OS X >> switch window like windows
+- AltTab: Mac OS >> switch window like windows
+- yabai with sxhd: >> Mac OS
 
 ## Bar
 
@@ -39,6 +41,11 @@ Also, these are bspwm and i3wm and more.
 
 - joshuto
 - yazi
+
+## Terminal Workspace
+
+- zellij
+- tmux
 
 ## Shell
 
