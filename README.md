@@ -57,6 +57,7 @@ Also, these are bspwm and i3wm and more.
 - hammerspoon: only in Mac OS X
 - raycast: only in Mac OS X
 - clashX: remote
+- KeyCastr: an open-source keystroke visualizer
 
 ## Script
 
