@@ -15,12 +15,12 @@ hs.hotkey.bind(hyperKey, 'j', function()
     hs.window.focusedWindow():moveToUnit({0, 0.5, 1, 0.5})
 end)
 
--- full screen
+-- full screen, need some space to show sketchybar
 hs.hotkey.bind(hyperKey, 'f', function()
-    hs.window.focusedWindow():moveToUnit({0, 0, 1, 1})
+    hs.window.focusedWindow():moveToUnit({0, 0.024, 1, 0.976})
 end)
 
--- center screnn
+-- center screen
 hs.hotkey.bind(hyperKey, 'c', function()
     hs.window.focusedWindow():moveToUnit({0.2, 0.2, 0.6, 0.6})
 end)
