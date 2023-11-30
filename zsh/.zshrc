@@ -7,6 +7,9 @@
 # Zsh configuration
 # -----------------
 
+# Source zsh plugins
+source $HOME/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 #
 # History
 #
@@ -162,7 +165,7 @@ eval "$(starship init zsh)"
 # flutter config
 export PATH="$PATH:$HOME/development/flutter/bin"
 
-# joshuto config leaving/quit joshuto on current directory
+# joshuto config
 alias joshuto='joshuto --output-file /tmp/joshutodir; LASTDIR=`cat /tmp/joshutodir`; cd "$LASTDIR"'
 
 # yazi config
@@ -186,3 +189,6 @@ function ya() {
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Mysql
+PATH="$PATH":/usr/local/mysql/bin
