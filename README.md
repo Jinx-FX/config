@@ -58,6 +58,7 @@ Also, these are bspwm and i3wm and more.
 - raycast: only in Mac OS X
 - clashX: remote
 - KeyCastr: an open-source keystroke visualizer
+- [JankyBorders](https://github.com/FelixKratz/JankyBorders): A lightweight window border system for macOS
 
 ## Script
 
