@@ -25,13 +25,3 @@ hs.hotkey.bind(hyperKey, 'c', function()
     hs.window.focusedWindow():moveToUnit({0.2, 0.2, 0.6, 0.6})
 end)
 
--- move to previous screen
-hs.hotkey.bind(hyperKey, 'm', function()
-		hs.window.switcher.previousWindow()
-end)
-
--- move to next screen
-hs.hotkey.bind(hyperKey, 'n', function()
-    hs.window.switcher.nextWindow()
-end)
-
