@@ -9,7 +9,15 @@ brew install --cask sf-symbols
 brew install jq
 brew install gh
 brew install switchaudio-osx
-curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.16/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
+```
+
+```sh
+# my fork: sketchybar-app-font
+git clone git@github.com:Jinx-FX/sketchybar-app-font.git
+pnpm i
+pnpm build
+
+# after that, install ttf font
 ```
 
 - (optional) gh auth login for GitHub notifications
@@ -32,7 +40,7 @@ lalt - f : yabai -m window --toggle zoom-parent; sketchybar --trigger window_foc
 
 ```sh
 function brew() {
-  command brew "$@" 
+  command brew "$@"
 
   if [[ $* =~ "upgrade" ]] || [[ $* =~ "update" ]] || [[ $* =~ "outdated" ]]; then
     sketchybar --trigger brew_update
