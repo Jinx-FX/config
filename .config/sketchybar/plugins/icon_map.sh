@@ -245,6 +245,9 @@ case "$1" in
 "GitHub Desktop")
   icon_result=":git_hub:"
   ;;
+"Sourcetree")
+	icon_result=":sourcetree:"
+	;;
 "Setapp")
   icon_result=":setapp:"
   ;;
