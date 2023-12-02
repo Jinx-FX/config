@@ -17,7 +17,7 @@ end)
 
 -- full screen, need some space to show sketchybar
 hs.hotkey.bind(hyperKey, 'f', function()
-    hs.window.focusedWindow():moveToUnit({0, 0.024, 1, 0.976})
+    hs.window.focusedWindow():moveToUnit({0, 0.037, 1, 0.963})
 end)
 
 -- center screen
