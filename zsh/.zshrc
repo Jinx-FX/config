@@ -8,7 +8,7 @@
 # -----------------
 
 # Source zsh plugins
-source $HOME/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# source $HOME/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 #
 # History
@@ -161,6 +161,8 @@ rbenv() {
 
 # starship config see : https://github.com/starship/starship
 eval "$(starship init zsh)"
+# thefuck conf
+eval $(thefuck --alias fuck)
 
 # flutter config
 export PATH="$PATH:$HOME/development/flutter/bin"
@@ -192,3 +194,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Mysql
 PATH="$PATH":/usr/local/mysql/bin
+
