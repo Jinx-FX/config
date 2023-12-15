@@ -24,6 +24,7 @@ bar=(
   color=$BAR_COLOR
   border_width=2
   border_color=$BAR_BORDER_COLOR
+	blur_radius=10
   shadow=off
   position=top
   sticky=on
