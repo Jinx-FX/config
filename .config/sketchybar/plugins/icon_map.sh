@@ -254,6 +254,9 @@ case "$1" in
 "微信")
   icon_result=":wechat:"
   ;;
+"D-Chat")
+	icon_result=":d_chat:"
+	;;
 "腾讯会议" | "Umeet")
 	icon_result=":meeting:"
 	;;
