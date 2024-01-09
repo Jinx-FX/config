@@ -25,7 +25,7 @@ Also, these are bspwm and i3wm and more.
 - dwm
 - bspwm with sxhkd
 - AltTab: Mac OS >> switch window like windows
-- yabai with sxhd: >> Mac OS
+- yabai with sxhd(a simple hotkey daemon): >> Mac OS
 
 ## Bar
 
