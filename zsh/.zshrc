@@ -188,10 +188,12 @@ function ya() {
 # bun completions
 [ -s "/Users/didi/.bun/_bun" ] && source "/Users/didi/.bun/_bun"
 
-# bun
+# bun config
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Mysql
+# Mysql config
 PATH="$PATH":/usr/local/mysql/bin
 
+# atuin config
+eval "$(atuin init zsh)"
