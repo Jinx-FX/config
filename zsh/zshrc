@@ -4,10 +4,6 @@ source ~/.config/zsh/vi.zsh
 source ~/.config/zsh/zimconf.zsh
 source ~/.config/zsh/prompt.zsh
 
-# History
-
-# Remove older command from the history if a duplicate is to be added.
-setopt HIST_IGNORE_ALL_DUPS
-# Remove path separator from WORDCHARS.
-WORDCHARS=${WORDCHARS//[\/]}
+# init a zsh plugin
+autopair-init
 
