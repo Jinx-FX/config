@@ -1,14 +1,14 @@
-# config
+# Config
 
 My dotfiles and scripts
 
-The config was mainly used in unix-like.
+The config is mainly used in unix-like.
 
-you may try something like [dwm](https://dwm.suckless.org/) and [st](https://st.suckless.org/).
+You may want to try something like [dwm](https://dwm.suckless.org/) and [st](https://st.suckless.org/).
 
 Also, these are bspwm and i3wm and more.
 
-## Code
+## Code Editor
 
 - vscode
 - nvim
@@ -24,8 +24,8 @@ Also, these are bspwm and i3wm and more.
 
 - i3wm
 - dwm
-- bspwm with sxhkd
-- AltTab: Mac OS >> switch window like windows
+- bspwm with sxhkd(a simple hotkey daemon)
+- AltTab: MacOS >> switch window like windows
 - yabai with sxhd(a simple hotkey daemon): >> Mac OS
 
 ## Bar
@@ -40,25 +40,29 @@ Also, these are bspwm and i3wm and more.
 
 ## File manager in Terminal
 
+- ranger
 - joshuto
 - yazi
 
 ## Terminal Workspace
 
-- zellij
-- tmux
+- [zellij](https://github.com/zellij-org/zellij): A terminal workspace with batteries included
+- [tmux](https://github.com/tmux/tmux): A terminal multiplexer
 
 ## Shell
 
 - zsh with zimfw
-- starship
+- [fzf](https://github.com/junegunn/fzf): A command-line fuzzy finder
+- [starship](https://github.com/starship/starship): Prompt for shell
+- [atuin](https://github.com/atuinsh/atuin): Magical shell history
+- [navi](https://github.com/denisidoro/navi): An interactive cheatsheet tool for the command-line
 
 ## Tool
 
-- hammerspoon: only in Mac OS X
-- raycast: only in Mac OS X
+- hammerspoon(only in Mac OS X): Staggeringly powerful macOS desktop automation with Lua
+- raycast(only in Mac OS X): A blazingly fast, totally extendable launcher
 - clashX: remote
-- KeyCastr: an open-source keystroke visualizer
+- KeyCastr: An open-source keystroke visualizer
 - [JankyBorders](https://github.com/FelixKratz/JankyBorders): A lightweight window border system for macOS
 
 ## Script
