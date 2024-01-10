@@ -1,9 +1,4 @@
-# zimfw plugin manager.
-
-#
-# Modules
-#
-
+# --- Modules ---
 # Sets sane Zsh built-in environment options.
 zmodule environment
 # Provides handy git aliases and functions.
@@ -15,10 +10,7 @@ zmodule termtitle
 # Utility aliases and functions. Adds colour to ls, grep and less.
 zmodule utility
 
-#
-# Prompt
-#
-
+# --- Prompt ---
 # Exposes to prompts how long the last command took to execute, used by asciiship.
 zmodule duration-info
 # Exposes git repository status information to prompts, used by asciiship.
@@ -27,10 +19,7 @@ zmodule git-info
 zmodule magicmace
 zmodule prompt-pwd
 
-#
-# Completion
-#
-
+# --- Completion ---
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions --fpath src
 # Enables and configures smart and extensive tab completion.
@@ -38,10 +27,7 @@ zmodule zsh-users/zsh-completions --fpath src
 zmodule completion
 zmodule hlissner/zsh-autopair
 
-#
-# Modules that must be initialized last
-#
-
+# --- Modules that must be initialized last ---
 # syntax highlighting for Zsh.
 zmodule zdharma-continuum/fast-syntax-highlighting
 # Fish-like history search (up arrow) for Zsh.
