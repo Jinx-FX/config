@@ -1,0 +1,28 @@
+# ignore everything
+/*
+/*/
+
+# ... but these:
+!/borders/
+!/bspwm/
+!/hammerspoon/
+!/helix/
+!/i3/
+!/joshuto/
+!/kitty/
+!/polybar/
+!/scripts/
+!/sketchybar/
+!/skhd/
+!/sxhkd/
+!/wallpaper/
+!/yabai/
+!/yazi/
+!/zsh/
+!/zsh-vi-mode/
+!/.Xmodmap
+!/.gitignore
+!/README.md
+!/my-app-use-in-manjaro.md
+
+.DS_Store
