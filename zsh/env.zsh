@@ -58,3 +58,4 @@ export PATH="$PATH":/usr/local/mysql/bin
 
 # atuin config
 eval "$(atuin init zsh)"
+

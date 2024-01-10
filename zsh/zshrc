@@ -1,8 +1,9 @@
 source ~/.config/zsh/env.zsh
 source ~/.config/zsh/plugins.zsh
-source ~/.config/zsh/prompt.zsh
 source ~/.config/zsh/vi.zsh
 source ~/.config/zsh/zimconf.zsh
+
+source ~/.config/zsh/prompt.zsh
 
 #
 # History
@@ -16,6 +17,4 @@ SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 
 # Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
-
-autopair-init
 
