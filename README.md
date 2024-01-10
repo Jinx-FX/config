@@ -2,7 +2,7 @@
 
 My dotfiles and scripts
 
-The config was mainly used in manjaroLinux.
+The config was mainly used in unix-like.
 
 you may try something like [dwm](https://dwm.suckless.org/) and [st](https://st.suckless.org/).
 
@@ -12,6 +12,7 @@ Also, these are bspwm and i3wm and more.
 
 - vscode
 - nvim
+- helix
 - other ide
 
 ## Api tools
