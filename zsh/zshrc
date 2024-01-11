@@ -7,3 +7,6 @@ source ~/.config/zsh/prompt.zsh
 # init a zsh plugin
 autopair-init
 
+# after eval
+source ~/.config/zsh/after.zsh
+
