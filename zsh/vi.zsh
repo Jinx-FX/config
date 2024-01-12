@@ -1,3 +1,6 @@
+# better
+source ~/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -v
 
