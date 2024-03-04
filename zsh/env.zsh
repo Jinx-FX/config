@@ -1,4 +1,8 @@
+export PATH=$HOME/.local/bin:$PATH
 export EDITOR=nvim
+export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:/opt/homebrew/sbin
+export PATH=$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin/
 
 # nvm config
 export NVM_DIR="$HOME/.nvm"
