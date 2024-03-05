@@ -1,3 +1,7 @@
+-- Run:
+--	rm  -rf ~/.hammerspoon
+--	ln  -s ~/.config/hammerspoon ~/.hammerspoon
+
 hyperKey = { 'alt', 'cmd' }
 
 -- move screen to left
@@ -24,4 +28,3 @@ end)
 hs.hotkey.bind(hyperKey, 'c', function()
 	hs.window.focusedWindow():moveToUnit({ 0.2, 0.2, 0.6, 0.6 })
 end)
-
