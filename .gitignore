@@ -3,6 +3,7 @@
 /*/
 
 # ... but these:
+!/atuin/
 !/borders/
 !/bspwm/
 !/hammerspoon/
@@ -15,6 +16,7 @@
 !/sketchybar/
 !/skhd/
 !/sxhkd/
+!/swiftbar/
 !/wallpaper/
 !/yabai/
 !/yazi/

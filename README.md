@@ -63,6 +63,7 @@ Also, these are bspwm and i3wm and more.
 - raycast(only in Mac OS X): A blazingly fast, totally extendable launcher
 - clashX: remote
 - KeyCastr: An open-source keystroke visualizer
+- [swiftBar](https://github.com/swiftbar/SwiftBar/): Powerful macOS menu bar customization tool
 - [JankyBorders](https://github.com/FelixKratz/JankyBorders): A lightweight window border system for macOS
 
 ## Script
