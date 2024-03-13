@@ -65,6 +65,8 @@ Also, these are bspwm and i3wm and more.
 - KeyCastr: An open-source keystroke visualizer
 - [swiftBar](https://github.com/swiftbar/SwiftBar/): Powerful macOS menu bar customization tool
 - [JankyBorders](https://github.com/FelixKratz/JankyBorders): A lightweight window border system for macOS
+- [SpaceId](https://github.com/dshnkao/SpaceId): macOS space indicator
+
 
 ## Script
 
