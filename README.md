@@ -36,6 +36,7 @@ Also, these are bspwm and i3wm and more.
 ## Terminal
 
 - kitty
+- [warp](https://www.warp.dev/)
 - simple terminal
 
 ## File manager in Terminal
@@ -66,6 +67,7 @@ Also, these are bspwm and i3wm and more.
 - [swiftBar](https://github.com/swiftbar/SwiftBar/): Powerful macOS menu bar customization tool
 - [JankyBorders](https://github.com/FelixKratz/JankyBorders): A lightweight window border system for macOS
 - [SpaceId](https://github.com/dshnkao/SpaceId): macOS space indicator
+- [ibar](https://www.better365.cn/ibar.html): Mac菜单栏图标管理工具
 
 
 ## Script
