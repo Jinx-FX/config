@@ -28,3 +28,15 @@ end)
 hs.hotkey.bind(hyperKey, 'c', function()
 	hs.window.focusedWindow():moveToUnit({ 0.2, 0.2, 0.6, 0.6 })
 end)
+
+spaceName = hs.loadSpoon("SpaceName")
+if spaceName then
+    spaceName
+        :start()
+        :bindHotkeys({
+            -- hotkey to change current space's name
+            set={{"ctrl"}, "n"},
+            -- hotkey to show menu with all spaces
+            show={{"ctrl"}, "m"}
+        })
+end
