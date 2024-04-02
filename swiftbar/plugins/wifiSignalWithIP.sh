@@ -7,8 +7,8 @@
 
 # Themes copied from here: http://colorbrewer2.org/
 # shellcheck disable=SC2034
-RED_GREEN_THEME=("#d73027" "#fc8d59" "#fee08b" "#ffffbf" "#d9ef8b" "#91cf60" "#1a9850")
-COLORS=("${RED_GREEN_THEME[@]}")
+# RED_GREEN_THEME=("#d73027" "#fc8d59" "#fee08b" "#ffffbf" "#d9ef8b" "#91cf60" "#1a9850")
+# COLORS=("${RED_GREEN_THEME[@]}")
 
 WIFIDATA=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I)
 SSID=$(echo "$WIFIDATA" | awk '/ SSID/ {print substr($0, index($0, $2))}')
@@ -27,25 +27,25 @@ SNR="$((SIGNAL - NOISE))"
 ## -90 dBm	Unusable
 if (("$SIGNAL" >= -30)); then
     RATING="Amazing"
-    COLOR=${COLORS[6]}
+    # COLOR=${COLORS[6]}
 elif (("$SIGNAL" >= -50)); then
     RATING="Excellent"
-    COLOR=${COLORS[5]}
+    # COLOR=${COLORS[5]}
 elif (("$SIGNAL" >= -60)); then
     RATING="Good"
-    COLOR=${COLORS[4]}
+    # COLOR=${COLORS[4]}
 elif (("$SIGNAL" >= -67)); then
     RATING="Reliable"
-    COLOR=${COLORS[3]}
+    # COLOR=${COLORS[3]}
 elif (("$SIGNAL" >= -70)); then
     RATING="Okay"
-    COLOR=${COLORS[2]}
+    # COLOR=${COLORS[2]}
 elif (("$SIGNAL" >= -80)); then
     RATING="Not Good"
-    COLOR=${COLORS[1]}
+    # COLOR=${COLORS[1]}
 elif (("$SIGNAL" >= -90)); then
     RATING="Unusable"
-    COLOR=${COLORS[0]}
+    # COLOR=${COLORS[0]}
 else
     RATING="Unknown"
     COLOR="#ccc"
