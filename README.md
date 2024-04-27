@@ -67,8 +67,9 @@ Also, these are bspwm and i3wm and more.
 - [swiftBar](https://github.com/swiftbar/SwiftBar/): Powerful macOS menu bar customization tool
 - [JankyBorders](https://github.com/FelixKratz/JankyBorders): A lightweight window border system for macOS
 - [SpaceId](https://github.com/dshnkao/SpaceId): macOS space indicator
-- [ibar](https://www.better365.cn/ibar.html): Mac菜单栏图标管理工具
+- [ibar](https://www.better365.cn/ibar.html): Mac 菜单栏图标管理工具
 - [stats](https://github.com/exelban/stats): macOS system monitor in your menu bar
+- Display my IP: macOS 菜单栏显示ip地址
 
 ## Script
 
