@@ -15,10 +15,16 @@ Also, these are bspwm and i3wm and more.
 - helix
 - other ide
 
+## RSS
+
+- [NetNewsWire](https://netnewswire.com/): a free and open source RSS reader for Mac, iPhone, and iPad
+
 ## Api tools
 
 - cURl
 - httpie
+- charles
+- Wireshark
 
 ## Window Manager
 
