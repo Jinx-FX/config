@@ -33,6 +33,7 @@ Also, these are bspwm and i3wm and more.
 - bspwm with sxhkd(a simple hotkey daemon)
 - AltTab: MacOS >> switch window like windows
 - yabai with sxhd(a simple hotkey daemon): >> Mac OS
+- [Loop](https://github.com/MrKai77/Loop?tab=readme-ov-file): Compatible with macOS 13 and later
 
 ## Bar
 
