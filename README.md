@@ -61,6 +61,8 @@ Also, these are bspwm and i3wm and more.
 
 - zsh with zimfw
 - [fzf](https://github.com/junegunn/fzf): A command-line fuzzy finder
+- [bat](https://github.com/sharkdp/bat): A cat(1) clone with wings
+- [zellij](https://github.com/zellij-org/zellij): A terminal workspace with batteries included
 - [starship](https://github.com/starship/starship): Prompt for shell
 - [atuin](https://github.com/atuinsh/atuin): Magical shell history
 - [navi](https://github.com/denisidoro/navi): An interactive cheatsheet tool for the command-line
