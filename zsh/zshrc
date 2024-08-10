@@ -3,6 +3,7 @@ source ~/.config/zsh/plugins.zsh
 source ~/.config/zsh/vi.zsh
 source ~/.config/zsh/zimconf.zsh
 source ~/.config/zsh/prompt.zsh
+source ~/.config/zsh/fzf.zsh
 
 # init a zsh plugin
 autopair-init
