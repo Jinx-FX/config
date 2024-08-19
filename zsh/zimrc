@@ -26,6 +26,8 @@ zmodule zsh-users/zsh-completions --fpath src
 # completion must be sourced after all modules that add completion definitions.
 zmodule completion
 zmodule hlissner/zsh-autopair
+# auto completion selection menu
+zmodule Aloxaf/fzf-tab
 
 # --- Modules that must be initialized last ---
 # syntax highlighting for Zsh.
