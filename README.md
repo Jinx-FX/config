@@ -25,6 +25,7 @@ Also, these are bspwm and i3wm and more.
 - httpie
 - charles
 - Wireshark
+- whistle
 
 ## Window Manager
 
