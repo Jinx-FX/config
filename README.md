@@ -26,6 +26,7 @@ Also, these are bspwm and i3wm and more.
 - charles
 - Wireshark
 - whistle
+- proxyman
 
 ## Window Manager
 
