@@ -4,6 +4,9 @@ eval "$(starship init zsh)"
 # atuin config
 eval "$(atuin init zsh)"
 
+# zxoide config
+eval "$(zoxide init zsh)"
+
 # joshuto config
 alias jo='joshuto --output-file /tmp/joshutodir; LASTDIR=`cat /tmp/joshutodir`; cd "$LASTDIR"'
 

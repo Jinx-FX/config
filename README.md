@@ -25,7 +25,7 @@ Also, these are bspwm and i3wm and more.
 - httpie
 - charles
 - Wireshark
-- whistle
+- whistle (recommand)
 - proxyman
 
 ## Window Manager
@@ -61,13 +61,13 @@ Also, these are bspwm and i3wm and more.
 
 ## Shell
 
-- zsh with zimfw
+- zsh with [zimfw](https://github.com/zimfw/zimfw)
 - [fzf](https://github.com/junegunn/fzf): A command-line fuzzy finder
+- [zoxide](https://github.com/ajeetdsouza/zoxide): A smarter cd command. Supports all major shells.
 - [bat](https://github.com/sharkdp/bat): A cat(1) clone with wings
 - [zellij](https://github.com/zellij-org/zellij): A terminal workspace with batteries included
 - [starship](https://github.com/starship/starship): Prompt for shell
 - [atuin](https://github.com/atuinsh/atuin): Magical shell history
-- [navi](https://github.com/denisidoro/navi): An interactive cheatsheet tool for the command-line
 
 ## Tool
 
