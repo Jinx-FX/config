@@ -15,6 +15,13 @@ Also, these are bspwm and i3wm and more.
 - helix
 - other ide
 
+## VCS(version control system) tools
+
+- [git](https://git-scm.com/): Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. 
+- [lazygit](https://github.com/jesseduffield/lazygit): simple terminal UI for git commands
+- [sourceTree](https://www.sourcetreeapp.com/): Simplicity and power in a beautiful Git GUI. (**free**)
+- [gitkraken](https://www.gitkraken.com/): Meet GitKraken, the creator of legendary Git tools for developers and teams - like the GitKraken Desktop, with Git GUI and CLI, Git Integration for Jira, and GitLens for VS Code. (**paid**)
+
 ## RSS
 
 - [NetNewsWire](https://netnewswire.com/): a free and open source RSS reader for Mac, iPhone, and iPad
@@ -25,7 +32,7 @@ Also, these are bspwm and i3wm and more.
 - httpie
 - charles
 - Wireshark
-- whistle (recommand)
+- whistle (**recommand**)
 - proxyman
 
 ## Docker containers
@@ -57,7 +64,7 @@ Also, these are bspwm and i3wm and more.
 
 - ranger
 - joshuto
-- yazi
+- yazi (**recommand**)
 
 ## Terminal Workspace
 
