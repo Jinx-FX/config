@@ -86,6 +86,7 @@ Also, these are bspwm and i3wm and more.
 - [zellij](https://github.com/zellij-org/zellij): A terminal workspace with batteries included
 - [starship](https://github.com/starship/starship): Prompt for shell
 - [atuin](https://github.com/atuinsh/atuin): Magical shell history
+- [eza](https://eza.rocks/): A modern, maintained replacement for ls, written in rust
 
 ## Tool
 
