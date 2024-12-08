@@ -19,8 +19,6 @@ Also, these are bspwm and i3wm and more.
 
 - [git](https://git-scm.com/): Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. 
 - [lazygit](https://github.com/jesseduffield/lazygit): simple terminal UI for git commands
-- [sourceTree](https://www.sourcetreeapp.com/): Simplicity and power in a beautiful Git GUI. (**free**)
-- [gitkraken](https://www.gitkraken.com/): Meet GitKraken, the creator of legendary Git tools for developers and teams - like the GitKraken Desktop, with Git GUI and CLI, Git Integration for Jira, and GitLens for VS Code. (**paid**)
 
 ## RSS
 
@@ -55,9 +53,7 @@ Also, these are bspwm and i3wm and more.
 - sketchybar: only in Mac OS X
 - [ice](https://github.com/jordanbaird/Ice): Powerful menu bar manager for macOS
 - [swiftBar](https://github.com/swiftbar/SwiftBar/): Powerful macOS menu bar customization tool
-- [ibar](https://www.better365.cn/ibar.html): Mac 菜单栏图标管理工具
 - [stats](https://github.com/exelban/stats): macOS system monitor in your menu bar
-- Display my IP: macOS 菜单栏显示ip地址
 - [SpaceId](https://github.com/dshnkao/SpaceId): macOS space indicator
 
 ## Terminal
@@ -83,7 +79,6 @@ Also, these are bspwm and i3wm and more.
 - [fzf](https://github.com/junegunn/fzf): A command-line fuzzy finder
 - [zoxide](https://github.com/ajeetdsouza/zoxide): A smarter cd command. Supports all major shells.
 - [bat](https://github.com/sharkdp/bat): A cat(1) clone with wings
-- [zellij](https://github.com/zellij-org/zellij): A terminal workspace with batteries included
 - [starship](https://github.com/starship/starship): Prompt for shell
 - [atuin](https://github.com/atuinsh/atuin): Magical shell history
 - [eza](https://eza.rocks/): A modern, maintained replacement for ls, written in rust
