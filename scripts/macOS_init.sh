@@ -9,7 +9,7 @@ else
 fi
 
 echo "使用 Homebrew 安装软件..."
-brew install lazygit nvim yazi kitty fzf zoxide starship bat eza atuin fastfetch ice
+brew install lazygit neovim yazi kitty fzf zoxide starship bat eza atuin fastfetch ice
 
 echo "使用 Homebrew 安装 Node.js 和 Ruby... 包管理工具"
 brew install nvm rbenv
