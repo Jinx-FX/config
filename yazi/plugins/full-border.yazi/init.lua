@@ -1,3 +1,6 @@
+-- Add a full border to Yazi to make it look fancier.
+-- From: https://github.com/yazi-rs/plugins/tree/main/full-border.yazi
+
 local function setup(_, opts)
 	local type = opts and opts.type or ui.Border.ROUNDED
 	local old_build = Tab.build

@@ -1,3 +1,6 @@
+-- Starship prompt plugin for yazi
+-- From: https://github.com/Rolv-Apneseth/starship.yazi
+
 local save = ya.sync(function(st, cwd, output)
     if cx.active.current.cwd == Url(cwd) then
         st.output = output
