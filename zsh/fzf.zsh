@@ -1,5 +1,11 @@
 alias fzf.p="fzf --preview 'bat --style=numbers --theme=ansi --color=always --line-range :500 {}'"
 
+# fzf-select-file.plugin.zsh
+# from: https://github.com/chmouel/fzf-select-file
+# <c-x> <c-f>: search files via
+# <c-x> <c-a>: search files with 'hidden files'
+# tab: multiple select
+
 # do nothing if fzf is not installed
 (( ! $+commands[fzf] )) && return
 
