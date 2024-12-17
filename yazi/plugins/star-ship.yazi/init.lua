@@ -64,7 +64,8 @@ return {
         ps.sub("tab", callback)
     end,
 
-    entry = function(_, args)
+    entry = function(_, job_or_args)
+        local args = job_or_args.args or job_or_args
         local command = Command("starship"):arg("prompt"):cwd(args[1]):env("STARSHIP_SHELL", "")
 
         -- Point to custom starship config
