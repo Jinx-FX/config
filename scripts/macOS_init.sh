@@ -14,5 +14,8 @@ echo "使用 Homebrew 安装 Node.js 和 Ruby... 包管理工具"
 brew install rbenv
 echo "Homebrew installation is not supported. If you have issues with homebrew-installed nvm, please brew uninstall it, and install it using the instructions below, before filing an issue."
 
-echo "记得按装 *raycast* *AltTab* *clashX* *whistle* *vscode* ..."
+echo "使用 Homebrew 安装 AltTab"
+brew install --cask alt-tab
+
+echo "记得按装 *raycast* *clashX* *whistle* *vscode* ..."
 echo "还有字体: *JetBrains Mono*, *FiraCode Nerd Font* *SF Pro*..."
