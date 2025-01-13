@@ -1,9 +1,29 @@
 PROMPT_PREFIX="  Execute instruction:"
 
 # node
-alias nrd='echo "$PROMPT_PREFIX npm run dev\n"; npm run dev'
-alias nrb='echo "$PROMPT_PREFIX npm run build\n"; npm run build'
-alias nll='echo "$PROMPT_PREFIX npm ls -g --depth=0 --link=true\n";npm ls -g --depth=0 --link=true'
+NRD="npm run dev"
+NRB="npm run build"
+NLL="npm ls -g --depth=0 --link=true"
+
+nrd() {
+  echo "$PROMPT_PREFIX $NRD\n"
+  eval $NRD
+}
+
+nrb() {
+  echo "$PROMPT_PREFIX $NRB\n"
+  eval $NRB
+}
+
+nll() {
+  echo "$PROMPT_PREFIX $NLL\n"
+  eval $NLL
+}
 
 # git
-alias gcr='echo "$PROMPT_PREFIX git push origin HEAD:refs/for/develop\n"; git push origin HEAD:refs/for/develop'
+GCR="git push origin HEAD:refs/for/develop"
+
+gcr() {
+  echo "$PROMPT_PREFIX $GCR\n"
+  eval $GCR
+}
