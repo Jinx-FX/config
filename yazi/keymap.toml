@@ -1,4 +1,5 @@
 [manager]
 append_keymap = [
   { on = [ "g", "l" ], run = "plugin lazygit", desc = "run lazygit" },
+  { on = "F", run = "plugin smart-filter", desc = "Smart filter" }
 ]
