@@ -4,6 +4,14 @@ source ~/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -v
 
+# References: https://en.wikipedia.org/wiki/ANSI_escape_code
+# \e[0 q：恢复到用户设置的光标形状。
+# \e[1 q：方块光标。
+# \e[2 q：下划线光标。
+# \e[3 q：垂直线光标（竖线）。
+# \e[4 q：垂直线光标（粗竖线）。
+# \e[5 q：光标形状。
+
 function zle-keymap-select {
 	if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
 		echo -ne '\e[1 q'
