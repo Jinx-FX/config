@@ -28,11 +28,8 @@ rbenv() {
   esac
 }
 
-# flutter config
-export PATH="$PATH:$HOME/development/flutter/bin"
-
 # bun completions
-[ -s "/Users/didi/.bun/_bun" ] && source "/Users/didi/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun config
 export BUN_INSTALL="$HOME/.bun"

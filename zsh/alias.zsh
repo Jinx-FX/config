@@ -27,3 +27,20 @@ gcr() {
   echo "$PROMPT_PREFIX $GCR\n"
   eval $GCR
 }
+
+# other
+ctags() {
+    local brew_ctags="/opt/homebrew/bin/ctags"
+    if [ -x "$brew_ctags" ]; then
+        "$brew_ctags" "$@"
+    else
+        echo "Error: The ctags installed by Homebrew ($brew_ctags) is not available." >&2
+        if command -v ctags > /dev/null 2>&1; then
+            echo "Trying to use the system's default ctags..." >&2
+            command ctags "$@"
+        else
+            echo "Error: No available ctags was found in the system." >&2
+            return 1
+        fi
+    fi
+}
