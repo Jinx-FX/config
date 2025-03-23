@@ -21,11 +21,18 @@ nll() {
 }
 
 # git
+GLAOG="git log --all --oneline --graph"
+
 gcr() {
   local branch=${1:-develop}
   local GCR="git push origin HEAD:refs/for/$branch"
   echo -e "$PROMPT_PREFIX $GCR\n"
   eval "$GCR"
+}
+
+glaog() {
+  echo -e "$PROMPT_PREFIX $GLAOG\n"
+  eval "$GLAOG"
 }
 
 # other
