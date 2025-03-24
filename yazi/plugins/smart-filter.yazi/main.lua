@@ -1,6 +1,8 @@
 -- A Yazi plugin that makes filters smarter: continuous filtering, automatically enter unique directory, open file on submitting.
 -- From: https://github.com/yazi-rs/plugins/blob/main/smart-filter.yazi/init.lua
 
+--- @since 25.2.26
+
 local hovered = ya.sync(function()
 	local h = cx.active.current.hovered
 	if not h then
