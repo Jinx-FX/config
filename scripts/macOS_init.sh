@@ -17,5 +17,8 @@ echo "Homebrew installation is not supported. If you have issues with homebrew-i
 echo "使用 Homebrew 安装 AltTab"
 brew install --cask alt-tab
 
+echo "字体Maple Mono NF CN"
+brew install --cask font-maple-mono-nf-cn
+
 echo "记得按装 *raycast* *clashX* *whistle* *vscode* ..."
-echo "还有字体: *JetBrains Mono*, *FiraCode Nerd Font* *SF Pro*..."
+
