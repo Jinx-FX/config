@@ -38,3 +38,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Mysql config
 export PATH="$PATH":/usr/local/mysql/bin
 
+# Python
+for pydir in ~/Library/Python/*/bin; do
+    if [ -d "$pydir" ]; then
+        export PATH="$PATH:$pydir"
+    fi
+done
+
