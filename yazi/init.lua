@@ -1,3 +1,3 @@
 require("full-border"):setup()
-require("star-ship"):setup()
-
+require("starship"):setup()
+require("git"):setup()
