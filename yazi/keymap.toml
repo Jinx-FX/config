@@ -7,3 +7,8 @@ desc = "run lazygit"
 on   = "F"
 run  = "plugin smart-filter"
 desc = "Smart filter"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "r" ]
+run  = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"'
+desc = "cd back to the root of the current Git repository"
