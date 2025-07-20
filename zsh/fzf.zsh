@@ -1,12 +1,27 @@
-export FZF_CTRL_T_OPTS='--preview "
-  if [[ -d {} ]]; then
-    tree -C {} | head -200;
-  elif [[ -f {} ]]; then
-    bat --style=numbers --color=always --line-range :500 {} ||
-    cat {};
-  fi"
+export FZF_CTRL_T_OPTS='
+	--preview "
+		if [[ -d {} ]]; then
+			tree -C {} | head -200;
+		elif [[ -f {} ]]; then
+			bat --style=numbers --color=always --line-range :500 {} ||
+			cat {};
+		fi
+	"
+  --header " 查找文件 :" 
+	--prompt " 文件搜索 > "
 '
-export FZF_ALT_C_OPTS="--preview 'eza -a --tree --level=1 --icons --git --color=always --group-directories-first {} | head -200'"
+export FZF_ALT_C_OPTS='
+	--header " 选择目录 :" 
+	--prompt " 目录搜索 > " 
+	--preview "
+		eza -a --tree --level=1 --icons --git --color=always --group-directories-first {} | head -200
+	"
+'
+export FZF_CTRL_R_OPTS='
+	--header " 命令历史 :"
+	--prompt " 历史搜索 > "
+	--reverse
+'
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
