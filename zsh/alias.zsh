@@ -33,6 +33,8 @@ nll() {
 # git
 GLAOG="git log --all --oneline --graph"
 
+alias gl="lazygit"
+
 gcr() {
   local branch=${1:-develop}
   local GCR="git push origin HEAD:refs/for/$branch"
