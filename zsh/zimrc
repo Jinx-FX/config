@@ -9,6 +9,8 @@ zmodule input
 zmodule termtitle
 # Utility aliases and functions. Adds colour to ls, grep and less.
 zmodule utility
+# A better and friendly vi(vim) mode plugin for ZSH
+zmodule jeffreytse/zsh-vi-mode
 
 # --- Prompt ---
 # Exposes to prompts how long the last command took to execute, used by asciiship.
