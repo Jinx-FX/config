@@ -8,7 +8,8 @@ else
 fi
 
 echo "使用 Homebrew 安装软件..."
-brew install lazygit neovim yazi kitty fzf zoxide starship bat eza atuin fastfetch ice
+brew install lazygit neovim yazi kitty fzf zoxide starship bat eza atuin fastfetch
+brew install --cask jordanbaird-ice
 
 echo "使用 Homebrew 安装 Node.js 和 Ruby... 包管理工具"
 brew install rbenv
@@ -21,4 +22,3 @@ echo "字体Maple Mono NF CN"
 brew install --cask font-maple-mono-nf-cn
 
 echo "记得按装 *raycast* *clashX* *whistle* *vscode* ..."
-
