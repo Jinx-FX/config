@@ -45,3 +45,9 @@ for pydir in ~/Library/Python/*/bin; do
     fi
 done
 
+# Android
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=$ANDROID_HOME/platform-tools:$PATH  # 包含 adb、fastboot 等
+export PATH=$ANDROID_HOME/tools:$PATH          # 包含一些旧工具（部分脚本依赖）
+export PATH=$ANDROID_HOME/emulator:$PATH       # 包含模拟器命令（emulator）
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH  # 包含 sdkmanager 等新工具
