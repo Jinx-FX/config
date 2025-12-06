@@ -11,7 +11,7 @@ from kitty.utils import color_as_int
 
 opts = get_options()
 
-ICON: str = " StarryRift "
+ICON: str = " StarryRift 󰄛"
 ICON_LENGTH: int = len(ICON)
 ICON_FG: int = as_rgb(color_as_int(opts.color16))
 ICON_BG: int = as_rgb(color_as_int(opts.color8))
