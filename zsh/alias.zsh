@@ -30,9 +30,28 @@ nll() {
   eval "$NLL"
 }
 
-# git
-GLAOG="git log --all --oneline --graph"
+# Web -> live server
 
+# Use: live 8080
+live() {
+  local port=${1:-5500}
+
+  # 循环检测端口是否被占用
+  # lsof -i :$port 用于检查端口是否有进程在监听
+  while lsof -Pi :$port -sTCP:LISTEN -t >/dev/null ; do
+    echo "⚠️  Port $port is already occupied, try the next one..."
+    port=$((port + 1))
+  done
+
+  echo "🚀 Port ready！Starting Five Server (Port: $port)..."
+  
+  # 执行启动命令
+  # --open: 自动打开浏览器
+  # --port: 指定最终确定的空闲端口
+  bunx five-server . --port=$port --open
+}
+
+# git
 alias gl="lazygit"
 
 gcr() {
@@ -40,11 +59,6 @@ gcr() {
   local GCR="git push origin HEAD:refs/for/$branch"
   echo -e "$PROMPT_PREFIX $GCR\n"
   eval "$GCR"
-}
-
-glaog() {
-  echo -e "$PROMPT_PREFIX $GLAOG\n"
-  eval "$GLAOG"
 }
 
 # cd git root dir
@@ -58,7 +72,10 @@ gr() {
   fi
 }
 
-# other
+# make sure use homebrew ctags first or use system default
+# https://github.com/universal-ctags/ctags
+# Use: ctags -R .
+# 生成一个 tags 索引文件 -> 编辑器读取该文件实现秒速跳转
 ctags() {
     local brew_ctags="/opt/homebrew/bin/ctags"
     if [ -x "$brew_ctags" ]; then
