@@ -1,0 +1,29 @@
+# appearance
+theme = Dracula
+font-family = "Maple Mono NF CN"
+font-style = bold
+font-size = 14
+bold-is-bright = true
+cursor-style = block
+cursor-style-blink = false
+macos-titlebar-style = tabs
+
+# feature
+link-url = true
+
+# shader
+custom-shader-animation = always
+
+## background
+# custom-shader = shaders/just_snow.glsl
+custom-shader = shaders/sparks_from_fire.glsl
+
+## curosr
+# custom-shader = shaders/cursor_blaze.glsl
+custom-shader = shaders/cursor_warp.glsl
+
+## fun
+# custom-shader = shaders/glitchy.glsl
+# custom-shader = shaders/better_crt.glsl
+# custom-shader = shaders/water.glsl
+# custom-shader = shaders/bloom.glsl

@@ -3,28 +3,29 @@
 /*/
 
 # ... but these:
+!/.Xmodmap
+!/.gitignore
+!/README.md
 !/atuin/
 !/borders/
 !/bspwm/
+!/ghostty/
 !/hammerspoon/
 !/helix/
 !/i3/
 !/joshuto/
 !/kitty/
+!/my-app-use-in-manjaro.md
 !/polybar/
 !/scripts/
 !/sketchybar/
 !/skhd/
-!/sxhkd/
 !/swiftbar/
+!/sxhkd/
 !/wallpaper/
 !/yabai/
 !/yazi/
-!/zsh/
 !/zsh-vi-mode/
-!/.Xmodmap
-!/.gitignore
-!/README.md
-!/my-app-use-in-manjaro.md
+!/zsh/
 
 .DS_Store
