@@ -1,5 +1,8 @@
 PROMPT_PREFIX="  Execute instruction:"
 
+# json
+alias checkjson='find . -name "*.json" -not -path "*/node_modules/*" -exec sh -c "python3 -m json.tool {} > /dev/null || echo \"❌ 错误文件: {}\"" \;'
+
 # yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd

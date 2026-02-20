@@ -16,7 +16,7 @@ custom-shader-animation = always
 
 ## background
 # custom-shader = shaders/just_snow.glsl
-custom-shader = shaders/sparks_from_fire.glsl
+# custom-shader = shaders/sparks_from_fire.glsl
 
 ## curosr
 # custom-shader = shaders/cursor_blaze.glsl
