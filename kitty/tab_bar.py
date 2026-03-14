@@ -27,6 +27,19 @@ session_icon = " "
 active_tab = None
 timer_id = None
 
+num2icons = [
+    ' ',
+    ' ',
+    '󰝱 ',
+    '󰋄 ',
+    '󰋅 ',
+    ' ',
+    '󰁨 ',
+    '󰈸 ',
+    '󱕣 ',
+    '󰂭 '
+]
+
 
 class Cell:
     def __init__(
@@ -37,7 +50,7 @@ class Cell:
         bg: str = BG,
         fg: str = FG,
         color: int = COLOR_1,
-        separator: str = "",
+        separator: str = "",
         border: tuple[str, str] = ("", ""),
     ) -> None:
 
@@ -169,7 +182,13 @@ def get_session(max_size: int, tab: TabBarData) -> str | None:
 
 def get_tab_cell(tab: TabBarData) -> Cell:
     color = COLOR_2 if tab.is_active else COLOR_1
-    return Cell(str(tab.tab_id), get_tab, tab, color=color)
+    icon = str(tab.tab_id)
+    try:
+        icon = num2icons[tab.tab_id - 1]
+    except IndexError:
+        icon = str(tab.tab_id)
+
+    return Cell(icon, text_fn=get_tab, tab=tab, color=color)
 
 
 def _redraw_tab_bar(_):
@@ -234,5 +253,4 @@ def draw_tab(
 
     if is_last and not extra_data.for_layout:
         _draw_right(screen)
-
     return end
