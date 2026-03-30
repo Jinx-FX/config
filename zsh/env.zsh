@@ -1,4 +1,5 @@
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.config/tool:$PATH
 export EDITOR=nvim
 export PATH=$PATH:/opt/homebrew/bin
 export PATH=$PATH:/opt/homebrew/sbin

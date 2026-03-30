@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+
+import json
+import argparse
+
+
+def find_lottie_text_path(obj, target_text, current_path=""):
+    """递归搜索并返回所有匹配的路径列表"""
+    results = []
+    if isinstance(obj, dict):
+        for key, value in obj.items():
+            new_path = f"{current_path}.{key}" if current_path else key
+            # 匹配逻辑：键名为 't' 且值为字符串，并包含目标关键字
+            if key == 't' and isinstance(value, str) and target_text in value:
+                results.append((new_path, value))
+            results.extend(find_lottie_text_path(value, target_text, new_path))
+    elif isinstance(obj, list):
+        for index, item in enumerate(obj):
+            new_path = f"{current_path}[{index}]"
+            results.extend(find_lottie_text_path(item, target_text, new_path))
+    return results
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Lottie JSON 文本路径检索工具")
+    parser.add_argument("file", help="Lottie JSON 文件的路径")
+    parser.add_argument("keyword", help="要查找的文本关键字")
+    parser.add_argument("-v", "--verbose",
+                        action="store_true", help="显示详细匹配内容")
+
+    args = parser.parse_args()
+
+    # 处理转义字符
+    keyword = args.keyword.replace("\\r", "\r").replace("\\n", "\n")
+
+    try:
+        with open(args.file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        print(f"🔍 正在检索文件: {args.file}")
+        print(f"🎯 目标关键字: '{repr(keyword)}'\n")
+
+        matches = find_lottie_text_path(data, keyword)
+
+        if not matches:
+            print("❌ 未找到匹配的路径。")
+            return
+
+        print(f"✅ 找到 {len(matches)} 处匹配:")
+        for path, val in matches:
+            if args.verbose:
+                print(f"内容: {repr(val)}")
+            print(f"路径: {path}")
+            print("-" * 20)
+
+    except FileNotFoundError:
+        print(f"错误: 找不到文件 '{args.file}'")
+    except json.JSONDecodeError:
+        print(f"错误: '{args.file}' 不是有效的 JSON 文件")
+    except Exception as e:
+        print(f"发生意外错误: {e}")
+
+
+if __name__ == "__main__":
+    main()
