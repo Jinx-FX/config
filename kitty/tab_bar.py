@@ -1,11 +1,10 @@
 from typing import Callable
 from kitty.fast_data_types import Screen, add_timer, get_boss, get_options
-from kitty.tab_bar import (
-    DrawData, TabBarData, ExtraData, TabAccessor, as_rgb
-)
+from kitty.tab_bar import DrawData, TabBarData, ExtraData, TabAccessor, as_rgb
 from kitty.utils import color_as_int
 import os
 import datetime
+import random
 from pathlib import Path
 
 opts = get_options()
@@ -20,24 +19,30 @@ COLOR_4 = as_rgb(color_as_int(opts.color4))
 REFRESH_TIME = 15
 MAX_LENGTH_PATH = 3
 
-folder_icon = " "
-time_icon = "󰥔 "
-session_icon = " "
+FOLDER_ICON = " "
+TIME_ICON = "󰥔 "
+SESSION_ICON = " "
 
 active_tab = None
 timer_id = None
 
-num2icons = [
-    ' ',
-    ' ',
-    '󰝱 ',
-    '󰋄 ',
-    '󰋅 ',
-    ' ',
-    '󰁨 ',
-    '󰈸 ',
-    '󱕣 ',
-    '󰂭 '
+_TAB_ICON_CACHE = {}
+ICONS = [
+    " ",
+    " ",
+    "󰝱 ",
+    "󰋄 ",
+    "󰋅 ",
+    " ",
+    "󰁨 ",
+    "󰈸 ",
+    "󱕣 ",
+    "󰣙 ",
+    " ",
+    " ",
+    " ",
+    "󰌽 ",
+    "󰲄 ",
 ]
 
 
@@ -62,8 +67,9 @@ class Cell:
         self.text_fn: Callable[[int, TabBarData], str | None] = text_fn
         self.border: tuple[str, str] = border
         self.separator: str = separator
-        self.text_length_overhead = len(
-            self.border[0] + self.border[1] + self.separator + self.icon) + 1
+        self.text_length_overhead = (
+            len(self.border[0] + self.border[1] + self.separator + self.icon) + 1
+        )
 
     def draw(self, screen: Screen, max_size: int) -> None:
         text = self.text_fn(max_size - self.text_length_overhead, self.tab)
@@ -118,7 +124,7 @@ def get_wd(max_size: int, tab: TabBarData):
     accessor = TabAccessor(tab.tab_id)
 
     wd = Path(accessor.active_wd)
-    home = Path(os.getenv('HOME'))
+    home = Path(os.getenv("HOME"))
 
     if wd.is_relative_to(home):
         wd = wd.relative_to(home)
@@ -136,7 +142,7 @@ def get_wd(max_size: int, tab: TabBarData):
 
     parts_cnt = 1 + compressed
     while parts_cnt != len(parts):
-        wd = "/".join(parts[0:1+compressed] + parts[parts_cnt:])
+        wd = "/".join(parts[0 : 1 + compressed] + parts[parts_cnt:])
         if len(wd) <= max_size:
             return wd
         parts_cnt += 1
@@ -183,10 +189,24 @@ def get_session(max_size: int, tab: TabBarData) -> str | None:
 def get_tab_cell(tab: TabBarData) -> Cell:
     color = COLOR_2 if tab.is_active else COLOR_1
     icon = str(tab.tab_id)
-    try:
-        icon = num2icons[tab.tab_id - 1]
-    except IndexError:
-        icon = str(tab.tab_id)
+
+    if tab.tab_id in _TAB_ICON_CACHE:
+        icon = _TAB_ICON_CACHE[tab.tab_id]
+    else:
+        if ICONS:
+            last_icon = list(_TAB_ICON_CACHE.values())[-1] if _TAB_ICON_CACHE else None
+
+            if last_icon in ICONS:
+                candidates = [i for i in ICONS if i != last_icon]
+            else:
+                candidates = ICONS
+
+            new_icon = random.choice(candidates) if candidates else random.choice(ICONS)
+
+            _TAB_ICON_CACHE[tab.tab_id] = new_icon
+            icon = new_icon
+        else:
+            icon = str(tab.tab_id)
 
     return Cell(icon, text_fn=get_tab, tab=tab, color=color)
 
@@ -198,14 +218,14 @@ def _redraw_tab_bar(_):
 
 
 def _draw_left(screen: Screen, max_length: int):
-    cell = Cell(folder_icon, get_wd, active_tab, color=COLOR_4)
+    cell = Cell(FOLDER_ICON, get_wd, active_tab, color=COLOR_4)
     cell.draw(screen, max_length)
 
 
 def _draw_right(screen: Screen):
     max_size = screen.columns - screen.cursor.x
-    time_cell = Cell(time_icon, get_time, color=COLOR_3)
-    session_cell = Cell(session_icon, get_session, active_tab, color=COLOR_3)
+    time_cell = Cell(TIME_ICON, get_time, color=COLOR_3)
+    session_cell = Cell(SESSION_ICON, get_session, active_tab, color=COLOR_3)
 
     total_length = time_cell.length(max_size)
     session_length = session_cell.length(max_size - total_length - 1)
@@ -233,8 +253,7 @@ def draw_tab(
     is_last: bool,
     extra_data: ExtraData,
 ) -> int:
-    global active_tab
-    global timer_id
+    global active_tab, timer_id
 
     if timer_id is None:
         timer_id = add_timer(_redraw_tab_bar, REFRESH_TIME, True)
