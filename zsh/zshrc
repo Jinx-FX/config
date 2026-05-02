@@ -12,3 +12,5 @@ autopair-init
 # after eval
 source ~/.config/zsh/after.zsh
 
+
+# debug: `zsh -xv 2>&1`

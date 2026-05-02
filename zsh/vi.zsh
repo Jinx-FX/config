@@ -32,3 +32,7 @@ _fix_cursor() {
 precmd_functions+=(_fix_cursor)
 
 KEYTIMEOUT=1
+
+function zvm_after_init() {
+  zvm_bindkey viins '^R' fzf-history-widget
+}
