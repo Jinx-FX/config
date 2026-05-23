@@ -1,27 +1,22 @@
 [[plugin.deps]]
-use = "yazi-rs/plugins:smart-filter"
-rev = "aeca767"
-hash = "4d82cd9e7534d976f000edf9c0f68d8f"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "aeca767"
-hash = "3996fc74044bc44144b323686f887e1"
+rev = "be524fb"
+hash = "7b625412411be411153886894d9acaf"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
-rev = "7a08a09"
-hash = "a1fa2b3e1826c3a34804ea8c548e9f80"
+rev = "e73fd74"
+hash = "6ea5f37c7f219671ec504cb8311f889d"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "6a0f3f7"
-hash = "d5a74d95c2e8194ac352c5e10e81e64f"
+rev = "a837101"
+hash = "635b0feb9215772d22020eb0abf0bb34"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "aeca767"
-hash = "bf6f074cd41ee33c3360341d168f9733"
+rev = "be524fb"
+hash = "88e56a64b7ce7c4314427452343fef17"
 
 [flavor]
 deps = []
