@@ -16,17 +16,13 @@ COLOR_2 = as_rgb(color_as_int(opts.color5))
 COLOR_3 = as_rgb(color_as_int(opts.color4))
 COLOR_4 = as_rgb(color_as_int(opts.color4))
 
-REFRESH_TIME = 15
+REFRESH_TIME = 3
 MAX_LENGTH_PATH = 3
 
 FOLDER_ICON = " "
 TIME_ICON = "󰥔 "
 SESSION_ICON = " "
 
-active_tab = None
-timer_id = None
-
-_TAB_ICON_CACHE = {}
 ICONS = [
     " ",
     " ",
@@ -44,6 +40,13 @@ ICONS = [
     "󰌽 ",
     "󰲄 ",
 ]
+
+
+active_tab = None
+timer_id = None
+
+_TAB_ICON_CACHE = {}
+_TAB_WD_CACHE = {}
 
 
 class Cell:
@@ -121,18 +124,38 @@ class Cell:
 
 
 def get_wd(max_size: int, tab: TabBarData):
+    if tab is None:
+        return "~"
+
     accessor = TabAccessor(tab.tab_id)
+    raw_wd = accessor.active_wd
 
-    wd = Path(accessor.active_wd)
-    home = Path(os.getenv("HOME"))
-
-    if wd.is_relative_to(home):
-        wd = wd.relative_to(home)
-
-        if wd == home:
-            wd = Path("~")
+    if raw_wd and raw_wd != "":
+        _TAB_WD_CACHE[tab.tab_id] = raw_wd
+    else:
+        if tab.title and (tab.title.startswith("/") or tab.title.startswith("~")):
+            raw_wd = tab.title
         else:
-            wd = Path("~") / wd
+            raw_wd = _TAB_WD_CACHE.get(tab.tab_id)
+
+        if not raw_wd:
+            raw_wd = tab.title if tab.title else "busy"
+
+    if str(raw_wd).startswith("~"):
+        home_dir = os.getenv("HOME", "/")
+        raw_wd = str(raw_wd).replace("~", home_dir, 1)
+
+    wd = Path(raw_wd)
+    home = Path(os.getenv("HOME", "/"))
+
+    try:
+        if wd.is_relative_to(home):
+            if wd == home:
+                wd = Path("~")
+            else:
+                wd = Path("~") / wd.relative_to(home)
+    except (ValueError, AttributeError):
+        pass
 
     parts = list(wd.parts)
     compressed = False
@@ -142,15 +165,15 @@ def get_wd(max_size: int, tab: TabBarData):
 
     parts_cnt = 1 + compressed
     while parts_cnt != len(parts):
-        wd = "/".join(parts[0 : 1 + compressed] + parts[parts_cnt:])
-        if len(wd) <= max_size:
-            return wd
+        wd_str = "/".join(parts[0 : 1 + compressed] + parts[parts_cnt:])
+        if len(wd_str) <= max_size:
+            return wd_str
         parts_cnt += 1
 
-    if len(parts[-1]) <= max_size:
+    if parts and len(parts[-1]) <= max_size:
         return parts[-1]
 
-    return None
+    return "..."
 
 
 def get_time(max_size: int, tab: TabBarData) -> str | None:
@@ -161,12 +184,22 @@ def get_time(max_size: int, tab: TabBarData) -> str | None:
 
 
 def get_tab(max_size: int, tab: TabBarData) -> str | None:
-    accessor = TabAccessor(tab.tab_id)
+    if tab is None:
+        return "tab"
 
-    if tab.title[0] == "#":
+    accessor = TabAccessor(tab.tab_id)
+    text = ""
+
+    if tab.title and tab.title[0] == "#":
         text = tab.title[1:]
     else:
-        text = str(accessor.active_exe)
+        try:
+            text = str(accessor.active_exe)
+        except Exception:
+            text = ""
+
+        if not text or text == "None":
+            text = tab.title or f"tab:{tab.tab_id}"
 
     if max_size <= len(text):
         return ""
@@ -258,7 +291,7 @@ def draw_tab(
     if timer_id is None:
         timer_id = add_timer(_redraw_tab_bar, REFRESH_TIME, True)
 
-    if tab.is_active:
+    if active_tab is None or tab.is_active:
         active_tab = tab
 
     screen.cursor.x = before
