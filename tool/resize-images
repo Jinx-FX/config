@@ -1,0 +1,162 @@
+#!/usr/bin/env python3
+
+import os
+import argparse
+from PIL import Image
+
+# 支持的图片格式后缀
+SUPPORTED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".bmp", ".tiff"}
+
+
+def get_image_files(input_path):
+    """获取需要处理的图片文件列表"""
+    files = []
+    if os.path.isfile(input_path):
+        files.append(input_path)
+    elif os.path.isdir(input_path):
+        for root, _, filenames in os.walk(input_path):
+            for filename in filenames:
+                if os.path.splitext(filename)[1].lower() in SUPPORTED_EXTENSIONS:
+                    files.append(os.path.join(root, filename))
+    else:
+        print(f"错误: 输入路径 '{input_path}' 不存在。")
+    return files
+
+
+def calculate_new_size(orig_w, orig_h, target_w, target_h, scale, keep_ratio):
+    """计算最终的目标尺寸"""
+    if scale:
+        # 按百分比缩放
+        return int(orig_w * scale), int(orig_h * scale)
+
+    if keep_ratio:
+        # 等比例缩放 (以提供的宽或高为基准)
+        if target_w and target_h:
+            # 如果都提供了，取缩放比例较小的那个，保证图片完全包含在目标框内
+            ratio = min(target_w / orig_w, target_h / orig_h)
+        elif target_w:
+            ratio = target_w / orig_w
+        elif target_h:
+            ratio = target_h / orig_h
+        else:
+            raise ValueError(
+                "等比例缩放模式下，必须至少提供宽度(--width)或高度(--height)"
+            )
+
+        return int(orig_w * ratio), int(orig_h * ratio)
+    else:
+        # 强制拉伸到指定尺寸
+        if not target_w or not target_h:
+            raise ValueError(
+                "非等比例模式下，必须同时提供宽度(--width)和高度(--height)"
+            )
+        return target_w, target_h
+
+
+def process_image(img_path, out_path, target_w, target_h, scale, keep_ratio, quality):
+    """处理单张图片"""
+    try:
+        with Image.open(img_path) as img:
+            orig_w, orig_h = img.size
+            new_size = calculate_new_size(
+                orig_w, orig_h, target_w, target_h, scale, keep_ratio
+            )
+
+            # 坑点处理：如果原图是 RGBA (带透明通道)，但目标格式是 JPG，需要转为 RGB，否则报错
+            if img.mode == "RGBA" and out_path.lower().endswith((".jpg", ".jpeg")):
+                # 创建一个白色背景，将透明部分填充为白色
+                background = Image.new("RGB", img.size, (255, 255, 255))
+                background.paste(img, mask=img.split()[3])  # 3 is the alpha channel
+                img = background
+            elif img.mode != "RGB" and out_path.lower().endswith((".jpg", ".jpeg")):
+                img = img.convert("RGB")
+
+            # 使用 LANCZOS 滤镜进行高质量重采样
+            resized_img = img.resize(new_size, Image.Resampling.LANCZOS)
+
+            # 确保输出目录存在
+            os.makedirs(os.path.dirname(out_path), exist_ok=True)
+
+            # 保存图片
+            save_kwargs = {"quality": quality, "optimize": True}
+            if out_path.lower().endswith(".png"):
+                save_kwargs.pop("quality", None)  # PNG 不支持 quality 参数
+
+            resized_img.save(out_path, **save_kwargs)
+            print(
+                f"✅ 成功: {os.path.basename(img_path)} ({orig_w}x{orig_h}) -> {new_size[0]}x{new_size[1]}"
+            )
+
+    except Exception as e:
+        print(f"❌ 失败: {os.path.basename(img_path)} - 错误信息: {e}")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="批量修改图片分辨率工具")
+    parser.add_argument(
+        "-i", "--input", required=True, help="输入图片路径或包含图片的文件夹路径"
+    )
+    parser.add_argument("-o", "--output", required=True, help="输出文件夹路径")
+
+    # 尺寸参数组
+    parser.add_argument("-W", "--width", type=int, help="目标宽度 (像素)")
+    parser.add_argument("-H", "--height", type=int, help="目标高度 (像素)")
+    parser.add_argument(
+        "-s",
+        "--scale",
+        type=float,
+        help="缩放比例 (例如 0.5 表示缩小一半，2.0 表示放大两倍)",
+    )
+
+    # 行为控制
+    parser.add_argument(
+        "-r", "--keep-ratio", action="store_true", help="保持宽高比 (等比例缩放)"
+    )
+    parser.add_argument(
+        "-q",
+        "--quality",
+        type=int,
+        default=90,
+        help="JPEG/WebP 保存质量 (1-100, 默认 90)",
+    )
+
+    args = parser.parse_args()
+
+    # 参数校验
+    if not args.scale and not args.keep_ratio and (not args.width or not args.height):
+        parser.error(
+            "如果不使用等比例缩放(-r)或比例缩放(-s)，必须同时提供宽度(-W)和高度(-H)。"
+        )
+
+    # 获取文件列表
+    image_files = get_image_files(args.input)
+    if not image_files:
+        print("未找到任何支持的图片文件。")
+        return
+
+    print(f"🚀 找到 {len(image_files)} 张图片，开始处理...\n")
+
+    # 批量处理
+    for img_path in image_files:
+        # 保持原有的相对目录结构
+        rel_path = os.path.relpath(
+            img_path,
+            args.input if os.path.isdir(args.input) else os.path.dirname(args.input),
+        )
+        out_path = os.path.join(args.output, rel_path)
+
+        process_image(
+            img_path,
+            out_path,
+            args.width,
+            args.height,
+            args.scale,
+            args.keep_ratio,
+            args.quality,
+        )
+
+    print(f"\n🎉 处理完成！结果已保存至: {os.path.abspath(args.output)}")
+
+
+if __name__ == "__main__":
+    main()
